@@ -65,9 +65,14 @@ function modal() {
   }
 
   close.addEventListener('click', () => {
+   /* let form = document.querySelector(".main-form");
+    form.remove(document.getElementsByClassName("status")[0]);*/
+    let status = document.getElementsByClassName("status")[0];
+    status.style.display = 'none';
     overlay.style.display = 'none';
     //this.parentNode.classList.remove('more-splash');
     document.body.style.overflow = '';
+  
   });
 
 }

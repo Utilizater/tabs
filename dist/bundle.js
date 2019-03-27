@@ -14020,6 +14020,10 @@ function modal() {
   }
 
   close.addEventListener('click', function () {
+    /* let form = document.querySelector(".main-form");
+     form.remove(document.getElementsByClassName("status")[0]);*/
+    var status = document.getElementsByClassName("status")[0];
+    status.style.display = 'none';
     overlay.style.display = 'none'; //this.parentNode.classList.remove('more-splash');
 
     document.body.style.overflow = '';
