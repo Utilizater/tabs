@@ -13799,12 +13799,18 @@ function form() {
   };
   var form = document.querySelector(".main-form"),
       input = form.getElementsByTagName("input"),
-      statusMesaage = document.createElement('div');
-  statusMesaage.classList.add("status");
+      statusMesaage = document.getElementsByClassName("statusMesaage")[0];
+
+  if (statusMesaage == undefined) {
+    statusMesaage = document.createElement("div");
+    statusMesaage.classList.add("status");
+    form.appendChild(statusMesaage);
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    form.appendChild(statusMesaage);
     var formData = new FormData(form);
+    statusMesaage.style.display = "block";
     var obj = {};
     formData.forEach(function (value, key) {
       obj[key] = value;

@@ -7,14 +7,19 @@ function form() {
 
   let form = document.querySelector(".main-form"),
     input = form.getElementsByTagName("input"),
-    statusMesaage = document.createElement('div');
 
-  statusMesaage.classList.add("status");
-  form.addEventListener("submit", (event) => {
+
+
+    statusMesaage = document.getElementsByClassName("statusMesaage")[0];
+    if (statusMesaage == undefined){
+      statusMesaage = document.createElement("div");    
+      statusMesaage.classList.add("status");
+      form.appendChild(statusMesaage);
+    }
+    form.addEventListener("submit", (event) => {
     event.preventDefault();
-    form.appendChild(statusMesaage);
-
     let formData = new FormData(form);
+    statusMesaage.style.display = "block";
 
     let obj = {};
     formData.forEach((value, key) => {
